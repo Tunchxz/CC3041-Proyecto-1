@@ -78,9 +78,10 @@ class Simulator:
             input_str (str): Cadena de entrada a procesar por la máquina.
         
         Returns:
-            tuple: (aceptada, log) donde:
+            tuple: (aceptada, log, tape) donde:
                 - aceptada (bool): True si la cadena fue aceptada (llegó al estado final) / False si fue rechazada (no hay transición válida).
                 - log (list): Lista de strings con el registro detallado de la simulación, incluyendo cada transición en formato formal.
+                - tape (Tape): Estado final de la cinta después de la simulación.
         """
         tape = Tape(input_str, blank_symbol=self.machine.blank_symbol)
         state = self.machine.initial_state
@@ -100,7 +101,7 @@ class Simulator:
             key = (state, cache, symbol)
 
             if key not in self.machine.delta:
-                return False, log
+                return False, log, tape
 
             new_state, new_cache, tape_output, movement = self.machine.delta[key]
 
@@ -129,6 +130,6 @@ class Simulator:
             log.append(f"{rule_str:<40} {id_before:<20} ⊢   {id_after}")
 
             if state == self.machine.final_state:
-                return True, log
+                return True, log, tape
 
             step += 1
