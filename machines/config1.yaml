@@ -1,0 +1,226 @@
+---
+q_states:
+  q_list:
+    - '0'
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+  initial: '0'
+  final: '7'
+
+# Alfabeto de entrada
+alphabet:
+  - a
+  - b
+  - c
+
+# Alfabeto de la cinta (incluye input + marcadores adicionales)
+tape_alphabet:
+  - a
+  - b
+  - c
+  - X
+  - Y
+  - Z
+  - 
+
+# Función de transición
+delta:
+
+  # Estado 0
+  - params:
+      initial_state: '0'
+      mem_cache_value:
+      tape_input: a
+    output:
+      final_state: '1'
+      mem_cache_value:
+      tape_output: X
+      tape_displacement: R
+
+  - params:
+      initial_state: '0'
+      mem_cache_value:
+      tape_input: b
+    output:
+      final_state: '5'
+      mem_cache_value:
+      tape_output: b
+      tape_displacement: R
+
+  # Estado 1
+  - params:
+      initial_state: '1'
+      mem_cache_value:
+      tape_input: a
+    output:
+      final_state: '1'
+      mem_cache_value:
+      tape_output: a
+      tape_displacement: R
+
+  - params:
+      initial_state: '1'
+      mem_cache_value:
+      tape_input: b
+    output:
+      final_state: '2'
+      mem_cache_value:
+      tape_output: Y
+      tape_displacement: R
+
+  - params:
+      initial_state: '1'
+      mem_cache_value:
+      tape_input: Z
+    output:
+      final_state: '4'
+      mem_cache_value:
+      tape_output: Z
+      tape_displacement: L
+
+  # Estado 2
+  - params:
+      initial_state: '2'
+      mem_cache_value:
+      tape_input: Z
+    output:
+      final_state: '2'
+      mem_cache_value:
+      tape_output: Z
+      tape_displacement: R
+
+  - params:
+      initial_state: '2'
+      mem_cache_value:
+      tape_input: b
+    output:
+      final_state: '2'
+      mem_cache_value:
+      tape_output: b
+      tape_displacement: R
+
+  - params:
+      initial_state: '2'
+      mem_cache_value:
+      tape_input: c
+    output:
+      final_state: '3'
+      mem_cache_value:
+      tape_output: Z
+      tape_displacement: L
+
+  # Estado 3
+  - params:
+      initial_state: '3'
+      mem_cache_value:
+      tape_input: Z
+    output:
+      final_state: '3'
+      mem_cache_value:
+      tape_output: Z
+      tape_displacement: L
+
+  - params:
+      initial_state: '3'
+      mem_cache_value:
+      tape_input: b
+    output:
+      final_state: '3'
+      mem_cache_value:
+      tape_output: b
+      tape_displacement: L
+
+  - params:
+      initial_state: '3'
+      mem_cache_value:
+      tape_input: Y
+    output:
+      final_state: '1'
+      mem_cache_value:
+      tape_output: Y
+      tape_displacement: R
+
+  # Estado 4
+  - params:
+      initial_state: '4'
+      mem_cache_value:
+      tape_input: a
+    output:
+      final_state: '4'
+      mem_cache_value:
+      tape_output: a
+      tape_displacement: L
+
+  - params:
+      initial_state: '4'
+      mem_cache_value:
+      tape_input: Y
+    output:
+      final_state: '4'
+      mem_cache_value:
+      tape_output: b
+      tape_displacement: L
+
+  - params:
+      initial_state: '4'
+      mem_cache_value:
+      tape_input: X
+    output:
+      final_state: '0'
+      mem_cache_value:
+      tape_output: X
+      tape_displacement: R
+
+  # Estado 5
+  - params:
+      initial_state: '5'
+      mem_cache_value:
+      tape_input: b
+    output:
+      final_state: '5'
+      mem_cache_value:
+      tape_output: b
+      tape_displacement: R
+
+  - params:
+      initial_state: '5'
+      mem_cache_value:
+      tape_input: Z
+    output:
+      final_state: '6'
+      mem_cache_value:
+      tape_output: Z
+      tape_displacement: R
+
+  # Estado 6
+  - params:
+      initial_state: '6'
+      mem_cache_value:
+      tape_input: Z
+    output:
+      final_state: '6'
+      mem_cache_value:
+      tape_output: Z
+      tape_displacement: R
+
+  - params:
+      initial_state: '6'
+      mem_cache_value:
+      tape_input:
+    output:
+      final_state: '7'
+      mem_cache_value:
+      tape_output:
+      tape_displacement: L
+
+# Cadenas a simular
+simulation_strings:
+  - aabbbcccccc
+  - aaaabcccc
+  - aabbccc
+  - aaaabbcccc
