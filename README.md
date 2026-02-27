@@ -143,7 +143,7 @@ tape_alphabet:
   - '1'                       # Unidades
   - Z                         # Separador de secciones
   - A                         # Marcador auxiliar 1
-  - B                         # Marcador auxiliar 2
+  - V                         # Marcador auxiliar 2
   - C                         # Marcador auxiliar 3
   - X                         # Marcador temporal 1
   - Y                         # Marcador temporal 2
@@ -250,17 +250,16 @@ Simulación para la cadena: 1111
 
 Para esta cadena, las transiciones son:
 
-δ([0, B], 1) = ([1, B], B, R)        [0,B]1111            ⊢   B[1,B]111
-δ([1, B], 1) = ([1, B], 1, R)        B[1,B]111            ⊢   B1[1,B]11
-δ([1, B], 1) = ([1, B], 1, R)        B1[1,B]11            ⊢   B11[1,B]1
+δ([0, B], 1) = ([1, B], B, R)            [0,B]1111            ⊢   B[1,B]111
+δ([1, B], 1) = ([2, B], 1, R)            B[1,B]111            ⊢   B1[2,B]11
+δ([2, B], 1) = ([2, B], 1, R)            B1[2,B]11            ⊢   B11[2,B]1
 ...
-δ([7, B], 1) = ([7, B], 1, R)        BBBB0[7,B]11B        ⊢   BBBB01[7,B]1B
-δ([7, B], 1) = ([7, B], 1, R)        BBBB01[7,B]1B        ⊢   BBBB011[7,B]B
-δ([8, B], B) = ([9, B], B, L)        BBBB011[8,B]B        ⊢   BBBB01[9,B]1B
+δ([8, B], A) = ([8, B], 1, R)            BBBB1[8,B]AVB        ⊢   BBBB11[8,B]VB
+δ([8, B], V) = ([8, B], 1, R)            BBBB11[8,B]VB        ⊢   BBBB111[8,B]B
+δ([8, B], B) = ([9, B], B, L)            BBBB111[8,B]B        ⊢   BBBB11[9,B]1B
 
 ----------------------------------------
-RESULTADO FINAL: 1111 = 4
-
+RESULTADO FINAL: 111 = 3
 Cadena ACEPTADA ✔
 ----------------------------------------
 ```

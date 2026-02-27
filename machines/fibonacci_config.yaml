@@ -23,7 +23,7 @@ tape_alphabet:
   - '1'
   - Z
   - A
-  - B
+  - V
   - C
   - X
   - Y
@@ -149,11 +149,11 @@ delta:
   - params:
       initial_state: '3'
       mem_cache_value:
-      tape_input: B
+      tape_input: V
     output:
       final_state: '3'
       mem_cache_value:
-      tape_output: B
+      tape_output: V
       tape_displacement: L
 
   - params:
@@ -174,7 +174,7 @@ delta:
     output:
       final_state: '3'
       mem_cache_value:
-      tape_output: B
+      tape_output: V
       tape_displacement: L
 
   - params:
@@ -200,7 +200,7 @@ delta:
   - params:
       initial_state: '4'
       mem_cache_value:
-      tape_input: B
+      tape_input: V
     output:
       final_state: '6'
       mem_cache_value:
@@ -214,7 +214,7 @@ delta:
     output:
       final_state: '5'
       mem_cache_value:
-      tape_output: B
+      tape_output: V
       tape_displacement: R
 
   # Estado 5
@@ -225,7 +225,7 @@ delta:
     output:
       final_state: '5'
       mem_cache_value:
-      tape_output: B
+      tape_output: V
       tape_displacement: R
 
   - params:
@@ -252,11 +252,11 @@ delta:
   - params:
       initial_state: '6'
       mem_cache_value:
-      tape_input: B
+      tape_input: V
     output:
       final_state: '6'
       mem_cache_value:
-      tape_output: B
+      tape_output: V
       tape_displacement: R
 
   - params:
@@ -293,11 +293,11 @@ delta:
   - params:
       initial_state: '7'
       mem_cache_value:
-      tape_input: B
+      tape_input: V
     output:
       final_state: '7'
       mem_cache_value:
-      tape_output: B
+      tape_output: V
       tape_displacement: L
 
   - params:
@@ -354,7 +354,7 @@ delta:
   - params:
       initial_state: '8'
       mem_cache_value:
-      tape_input: B
+      tape_input: V
     output:
       final_state: '8'
       mem_cache_value:
