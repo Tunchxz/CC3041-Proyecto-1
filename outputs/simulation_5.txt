@@ -1,0 +1,79 @@
+--------------------------------------------------
+Simulación para la cadena: 11111
+--------------------------------------------------
+
+Para esta cadena, las transiciones son:
+
+δ([0, B], 1) = ([1, B], B, R)            [0,B]11111           ⊢   B[1,B]1111
+δ([1, B], 1) = ([2, B], 1, R)            B[1,B]1111           ⊢   B1[2,B]111
+δ([2, B], 1) = ([2, B], 1, R)            B1[2,B]111           ⊢   B11[2,B]11
+δ([2, B], 1) = ([2, B], 1, R)            B11[2,B]11           ⊢   B111[2,B]1
+δ([2, B], 1) = ([2, B], 1, R)            B111[2,B]1           ⊢   B1111
+δ([2, B], B) = ([3, B], Z, L)            B1111                ⊢   B111[3,B]1Z
+δ([3, B], 1) = ([3, B], 1, L)            B111[3,B]1Z          ⊢   B11[3,B]11Z
+δ([3, B], 1) = ([3, B], 1, L)            B11[3,B]11Z          ⊢   B1[3,B]111Z
+δ([3, B], 1) = ([3, B], 1, L)            B1[3,B]111Z          ⊢   B[3,B]1111Z
+δ([3, B], 1) = ([3, B], 1, L)            B[3,B]1111Z          ⊢   [3,B]B1111Z
+δ([3, B], B) = ([0, B], B, R)            [3,B]B1111Z          ⊢   B[0,B]1111Z
+δ([0, B], 1) = ([1, B], B, R)            B[0,B]1111Z          ⊢   BB[1,B]111Z
+δ([1, B], 1) = ([2, B], 1, R)            BB[1,B]111Z          ⊢   BB1[2,B]11Z
+δ([2, B], 1) = ([2, B], 1, R)            BB1[2,B]11Z          ⊢   BB11[2,B]1Z
+δ([2, B], 1) = ([2, B], 1, R)            BB11[2,B]1Z          ⊢   BB111[2,B]Z
+δ([2, B], Z) = ([4, B], Z, R)            BB111[2,B]Z          ⊢   BB111Z
+δ([4, B], B) = ([3, B], B, L)            BB111Z               ⊢   BB111[3,B]ZB
+δ([3, B], Z) = ([3, B], Z, L)            BB111[3,B]ZB         ⊢   BB11[3,B]1ZB
+δ([3, B], 1) = ([3, B], 1, L)            BB11[3,B]1ZB         ⊢   BB1[3,B]11ZB
+δ([3, B], 1) = ([3, B], 1, L)            BB1[3,B]11ZB         ⊢   BB[3,B]111ZB
+δ([3, B], 1) = ([3, B], 1, L)            BB[3,B]111ZB         ⊢   B[3,B]B111ZB
+δ([3, B], B) = ([0, B], B, R)            B[3,B]B111ZB         ⊢   BB[0,B]111ZB
+δ([0, B], 1) = ([1, B], B, R)            BB[0,B]111ZB         ⊢   BBB[1,B]11ZB
+δ([1, B], 1) = ([2, B], 1, R)            BBB[1,B]11ZB         ⊢   BBB1[2,B]1ZB
+δ([2, B], 1) = ([2, B], 1, R)            BBB1[2,B]1ZB         ⊢   BBB11[2,B]ZB
+δ([2, B], Z) = ([4, B], Z, R)            BBB11[2,B]ZB         ⊢   BBB11Z[4,B]B
+δ([4, B], B) = ([6, B], Y, R)            BBB11Z[4,B]B         ⊢   BBB11ZY
+δ([6, B], B) = ([7, B], C, L)            BBB11ZY              ⊢   BBB11Z[7,B]YC
+δ([7, B], Y) = ([4, B], A, R)            BBB11Z[7,B]YC        ⊢   BBB11ZA[4,B]C
+δ([4, B], C) = ([5, B], B, R)            BBB11ZA[4,B]C        ⊢   BBB11ZAB
+δ([5, B], B) = ([3, B], B, L)            BBB11ZAB             ⊢   BBB11ZA[3,B]BB
+δ([3, B], B) = ([3, B], B, L)            BBB11ZA[3,B]BB       ⊢   BBB11Z[3,B]ABB
+δ([3, B], A) = ([3, B], A, L)            BBB11Z[3,B]ABB       ⊢   BBB11[3,B]ZABB
+δ([3, B], Z) = ([3, B], Z, L)            BBB11[3,B]ZABB       ⊢   BBB1[3,B]1ZABB
+δ([3, B], 1) = ([3, B], 1, L)            BBB1[3,B]1ZABB       ⊢   BBB[3,B]11ZABB
+δ([3, B], 1) = ([3, B], 1, L)            BBB[3,B]11ZABB       ⊢   BB[3,B]B11ZABB
+δ([3, B], B) = ([0, B], B, R)            BB[3,B]B11ZABB       ⊢   BBB[0,B]11ZABB
+δ([0, B], 1) = ([1, B], B, R)            BBB[0,B]11ZABB       ⊢   BBBB[1,B]1ZABB
+δ([1, B], 1) = ([2, B], 1, R)            BBBB[1,B]1ZABB       ⊢   BBBB1[2,B]ZABB
+δ([2, B], Z) = ([4, B], Z, R)            BBBB1[2,B]ZABB       ⊢   BBBB1Z[4,B]ABB
+δ([4, B], A) = ([6, B], X, R)            BBBB1Z[4,B]ABB       ⊢   BBBB1ZX[6,B]BB
+δ([6, B], B) = ([6, B], B, R)            BBBB1ZX[6,B]BB       ⊢   BBBB1ZXB[6,B]B
+δ([6, B], B) = ([7, B], C, L)            BBBB1ZXB[6,B]B       ⊢   BBBB1ZX[7,B]BC
+δ([7, B], B) = ([7, B], B, L)            BBBB1ZX[7,B]BC       ⊢   BBBB1Z[7,B]XBC
+δ([7, B], X) = ([4, B], 1, R)            BBBB1Z[7,B]XBC       ⊢   BBBB1Z1[4,B]BC
+δ([4, B], B) = ([6, B], Y, R)            BBBB1Z1[4,B]BC       ⊢   BBBB1Z1Y[6,B]C
+δ([6, B], C) = ([6, B], C, R)            BBBB1Z1Y[6,B]C       ⊢   BBBB1Z1YC
+δ([6, B], B) = ([7, B], C, L)            BBBB1Z1YC            ⊢   BBBB1Z1Y[7,B]CC
+δ([7, B], C) = ([7, B], C, L)            BBBB1Z1Y[7,B]CC      ⊢   BBBB1Z1[7,B]YCC
+δ([7, B], Y) = ([4, B], A, R)            BBBB1Z1[7,B]YCC      ⊢   BBBB1Z1A[4,B]CC
+δ([4, B], C) = ([5, B], B, R)            BBBB1Z1A[4,B]CC      ⊢   BBBB1Z1AB[5,B]C
+δ([5, B], C) = ([5, B], B, R)            BBBB1Z1AB[5,B]C      ⊢   BBBB1Z1ABB
+δ([5, B], B) = ([3, B], B, L)            BBBB1Z1ABB           ⊢   BBBB1Z1AB[3,B]BB
+δ([3, B], B) = ([3, B], B, L)            BBBB1Z1AB[3,B]BB     ⊢   BBBB1Z1A[3,B]BBB
+δ([3, B], B) = ([3, B], B, L)            BBBB1Z1A[3,B]BBB     ⊢   BBBB1Z1[3,B]ABBB
+δ([3, B], A) = ([3, B], A, L)            BBBB1Z1[3,B]ABBB     ⊢   BBBB1Z[3,B]1ABBB
+δ([3, B], 1) = ([3, B], 1, L)            BBBB1Z[3,B]1ABBB     ⊢   BBBB1[3,B]Z1ABBB
+δ([3, B], Z) = ([3, B], Z, L)            BBBB1[3,B]Z1ABBB     ⊢   BBBB[3,B]1Z1ABBB
+δ([3, B], 1) = ([3, B], 1, L)            BBBB[3,B]1Z1ABBB     ⊢   BBB[3,B]B1Z1ABBB
+δ([3, B], B) = ([0, B], B, R)            BBB[3,B]B1Z1ABBB     ⊢   BBBB[0,B]1Z1ABBB
+δ([0, B], 1) = ([1, B], B, R)            BBBB[0,B]1Z1ABBB     ⊢   BBBBB[1,B]Z1ABBB
+δ([1, B], Z) = ([0, B], Z, S)            BBBBB[1,B]Z1ABBB     ⊢   BBBBB[0,B]Z1ABBB
+δ([0, B], Z) = ([8, B], 1, R)            BBBBB[0,B]Z1ABBB     ⊢   BBBBB1[8,B]1ABBB
+δ([8, B], 1) = ([8, B], 1, R)            BBBBB1[8,B]1ABBB     ⊢   BBBBB11[8,B]ABBB
+δ([8, B], A) = ([8, B], 1, R)            BBBBB11[8,B]ABBB     ⊢   BBBBB111[8,B]BBB
+δ([8, B], B) = ([8, B], 1, R)            BBBBB111[8,B]BBB     ⊢   BBBBB1111[8,B]BB
+δ([8, B], B) = ([8, B], 1, R)            BBBBB1111[8,B]BB     ⊢   BBBBB11111[8,B]B
+δ([8, B], B) = ([9, B], B, L)            BBBBB11111[8,B]B     ⊢   BBBBB1111[9,B]1B
+
+----------------------------------------
+RESULTADO FINAL: 11111 = 5
+Cadena ACEPTADA ✔
+----------------------------------------
