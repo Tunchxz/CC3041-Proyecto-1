@@ -57,13 +57,6 @@ El análisis genera los siguientes archivos en el directorio `outputs/`:
 - Valores más bajos = mejor ajuste
 - Unidades: (millisegundos)²
 
-### Complejidad Computacional
-- Si el mejor modelo es de grado **d**, la complejidad es **O(n^d)**
-- Ejemplos:
-  - Grado 1 → O(n) - Lineal
-  - Grado 2 → O(n²) - Cuadrática
-  - Grado 3 → O(n³) - Cúbica
-
 ## Personalización
 
 ### Cambiar el rango de entradas
